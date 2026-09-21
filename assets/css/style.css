@@ -1,0 +1,158 @@
+/*--- Fonts ---*/
+/* Inter Regular */
+@font-face {
+  font-family: 'Inter';
+  src: url('./../fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter SemiBold */
+@font-face {
+  font-family: 'Inter';
+  src: url('./../fonts/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter SemiBold Italic */
+@font-face {
+  font-family: 'Inter';
+  src: url('./../fonts/Inter-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Inter Bold */
+@font-face {
+  font-family: 'Inter';
+  src: url('./../fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*--- Reset ---*/
+* {
+  /*--- Disable outline light on touchscreen devices ---*/
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+
+  /*--- Disable select text and image ---*/
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /*--- Reset Styles ---*/
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  /*--- Scrollbar for all ---*/
+  scrollbar-width: thin; /* thin | auto | none */
+  scrollbar-color: rgba(120, 120, 120, 0.4) transparent;
+}
+
+/*--- Scrollbar for all ---*/
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(120, 120, 120, 0.4);
+  border-radius: 6px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(120, 120, 120, 0.6);
+}
+
+/*--- Vars ---*/
+:root {
+    /* Colors */
+    --main-color: #e1d4c9;
+    --background-container: #665f55;
+  
+    /* paddings */
+    --main-paddings: clamp(16px, calc(16px + (40 - 16) * ((100vw - 400px) / (760 - 400))), 40px);
+    --footer-paddings-tb: 100px;
+    --footer-paddings-lr: clamp(60px, calc(60px + (100 - 60) * ((100vw - 800px) / (1440 - 800))), 100px);
+  
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+[data-theme="dark"] {
+  --main-color: #292826;
+  --background-container: #403f3d;
+}
+
+/*--- Common ---*/
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: var(--main-color);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1440px;
+    padding: 20px var(--main-paddings) 40px var(--main-paddings);
+}
+
+/*--- Header ---*/
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 60px;
+}
+
+/*--- Main ---*/
+.main {
+    width: 100%;
+    margin-top: 20px;
+    min-height: 500px;
+}
+
+/*--- Footer ---*/
+.footer {
+    width: 100%;
+    margin-top: 100px;
+    padding: var(--footer-paddings-tb) var(--footer-paddings-lr);
+
+    border-radius: 40px;
+    background-color: var(--background-container);
+}
+
+
+/*--- Media ---*/
+@media (hover: hover) and (pointer: fine) {
+	
+}
+
+@media (max-width: 768px) {
+  :root {
+    --footer-paddings-tb: clamp(60px, calc(60px + (100 - 60) * ((100vw - 400px) / (760 - 400))), 100px);
+    --footer-paddings-lr: clamp(16px, calc(16px + (60 - 16) * ((100vw - 400px) / (760 - 400))), 60px); 
+  }
+}
