@@ -177,11 +177,6 @@ a {
   opacity: 1;
 }
 
-h1, h2 {
-  color: var(--text-primary);
-  width: 100%;
-}
-
 
 /*--- Header ---*/
 .header {
@@ -457,4 +452,23 @@ html[data-theme="dark"] .header__theme::before {
   .header__mob-menu {
     display: flex;
   }
+}
+
+.popup {
+  background-color: var(--main-bg-color);
+}
+
+.popup-h2,
+.popup-h3 {
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.popup-h2 {
+  font-size: 32px;
+}
+
+.popup-h3 {
+  margin-top: 60px;
+  font-size: 26px;
 }
