@@ -88,6 +88,7 @@
   --text-primary: #403f3d;
   --text-inverse: #e1d4c9;
   --text-accent: #b0907a;
+  --border-color: #665f55;
 
   /* paddings */
   --main-paddings: clamp(16px, calc(16px + (40 - 16) * ((100vw - 400px) / (760 - 400))), 40px);
@@ -103,6 +104,7 @@ html[data-theme="dark"] {
   --main-bg-color: #292826;
   --background-container: #403f3d;
   --text-primary: #e1d4c9;
+  --border-color: #c1b6ad;
 }
 
 /*--- Common ---*/
@@ -235,6 +237,42 @@ html[data-theme="dark"] .header__logo::before {
   flex-direction: row-reverse;
   align-items: center;
   gap: clamp(12px, calc(12px + (24 - 12) * ((100vw - 780px) / (930 - 780))), 24px);
+}
+
+.header__mob-menu {
+  position: relative;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.header__mob-menu::before,
+.header__mob-menu::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 14px;
+
+  width: 16px;
+  height: 2px;
+
+  background-color: var(--border-color);
+}
+
+.header__mob-menu::after {
+  top: auto;
+  left: 14px;
+  bottom: 16px;
 }
 
 .header__menu-btn_coffee {
@@ -409,5 +447,14 @@ html[data-theme="dark"] .header__theme::before {
     --mainscrn-paddings-lr: clamp(16px, calc(16px + (60 - 16) * ((100vw - 400px) / (760 - 400))), 60px); 
     --footer-paddings-tb: clamp(60px, calc(60px + (100 - 60) * ((100vw - 400px) / (760 - 400))), 100px);
     --footer-paddings-lr: clamp(16px, calc(16px + (60 - 16) * ((100vw - 400px) / (760 - 400))), 60px); 
+  }
+
+  .header__menu,
+  .header__menu-btn_coffee {
+    display: none;
+  }
+
+  .header__mob-menu {
+    display: flex;
   }
 }
