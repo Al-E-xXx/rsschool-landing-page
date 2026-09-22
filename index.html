@@ -59,14 +59,62 @@
             <section class="mainscrn">
                 <div class="mainscrn__content">
                     <h1 class="mainscrn__title">
-                        <span class="mainscrn__title_accent">Enjoy</span> premium coffee at our charming cafe
+                        <span class="mainscrn__title_accent title-accent">Enjoy</span> premium coffee at our charming cafe
                     </h1>
                     <p class="mainscrn__text">
                         With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.
                     </p>
-                    <a class="mainscrn__link" href="./menu.html">Menu</a>
+                    <a class="mainscrn__link" href="./menu.html">
+                        <span class="mainscrn__link-txt">Menu</span>
+                    </a>
                 </div>
             </section>
+
+            <section class="favorite-coffee" id="favorite-coffee">
+                <h2 class="favorite-coffee__title">Choose your <span class="favorite-coffee__title_accent title-accent">favorite</span> coffee</h2>
+                <div class="slider">
+                    <div class="slider__wrapper">
+                        <div class="slider__btn-wrapper">
+                            <button class="slider__btn slider__btn_left" id="slider-btn-left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 12H18.5M12.5 18L18.5 12L12.5 6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="slider__line-wrapper">
+                            <div class="slider__line">
+                                <div class="slider__slide-item">
+                                    <div class="slide">
+                                        <div class="slide__img-wrapper">
+                                            <img class="slide__img" src="./assets/img/slider/coffee-slider-1.webp" alt="A glass of S’mores Frappuccino">
+                                        </div>
+                                        <h3 class="slide__header">S’mores Frappuccino</h3>
+                                        <div class="slide__description">
+                                            This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.
+                                        </div>
+                                        <div class="slider__price">$5.50</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider__btn-wrapper">
+                            <button class="slider__btn slider__btn_right" id="slider-btn-right">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 12H18.5M12.5 18L18.5 12L12.5 6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slider__pagination-wrapper">
+                        <div class="slider__pagination">
+                            <div class="slider__pagination-item"></div>
+                            <div class="slider__pagination-item"></div>
+                            <div class="slider__pagination-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </main>
 
         <footer class="footer">
