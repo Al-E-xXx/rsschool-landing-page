@@ -448,6 +448,10 @@ html[data-theme="dark"] .header__theme::before {
   transition: opacity 0.4s ease;
 }
 
+html[data-theme="dark"] .mainscrn__link-txt::after {
+  background-image: url(./../img/coffee-cup-dark.svg);
+}
+
 /* Favorite Coffee */
 .favorite-coffee {
   margin-top: 100px;
