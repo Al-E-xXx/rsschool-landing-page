@@ -983,8 +983,12 @@ html[data-theme="dark"] .menu-section__option_active .menu-section__option-icon 
   transition: all 0.4s ease;
 }
 
+html[data-theme="dark"] .more-goods {
+  border: 1px solid #c1b6ad;
+}
+
 html[data-theme="dark"] .more-goods svg path {
-  stroke: #665f55;
+  stroke: #c1b6ad;
 }
 
 /*--- Footer ---*/
