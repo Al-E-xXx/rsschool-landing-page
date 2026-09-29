@@ -1,3 +1,6 @@
+let currentCategory = 'coffee';
+let isExpanded = false;
+
 async function loadProducts(filePath = './assets/json/products.json') {
   try {
     const response = await fetch(filePath);
@@ -9,7 +12,6 @@ async function loadProducts(filePath = './assets/json/products.json') {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log('Failed to read JSON file:', error);
     throw error;
   }
 }
@@ -93,38 +95,55 @@ function showGoods(products, indexes = null, category = null) {
   const container = document.getElementById('goods-wrapper');
   if (!container) return;
 
+  if (category !== null) {
+    currentCategory = category;
+    isExpanded = false;
+  }
+
   let indexesToShow = [];
-  if (category) {
-    indexesToShow = getIndexesByCategory(products, category);
-  } else if (indexes && Array.isArray(indexes)) {
+  if (indexes && Array.isArray(indexes)) {
     indexesToShow = indexes;
+  } else if (currentCategory) {
+    indexesToShow = getIndexesByCategory(products, currentCategory);
   } else {
     indexesToShow = products.map(function(_, index) { return index; });
   }
 
-  container.innerHTML = '';
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const limit = (isMobile && !isExpanded) ? 4 : null;  
+  const cardsCount = limit ? Math.min(limit, indexesToShow.length) : indexesToShow.length;
 
-  // Передаём и глобальный index, и локальный localIndex
-  indexesToShow.forEach(function(globalIndex, localIndex) {
+  const newCards = [];
+  for (let i = 0; i < cardsCount; i++) {
+    const globalIndex = indexesToShow[i];
     if (globalIndex >= 0 && globalIndex < products.length) {
-      buildCard(products[globalIndex], globalIndex, container, localIndex);
+      const card = buildCard(products[globalIndex], globalIndex, null, i);
+      newCards.push(card);
     }
-  });
+  }
+
+  container.replaceChildren(...newCards);
+
+  const moreButton = document.getElementById('more-goods');
+  if (moreButton) {
+    const hasMore = indexesToShow.length > cardsCount;
+    
+    if (isMobile && hasMore && !isExpanded) {
+      moreButton.style.display = 'block';
+    } else {
+      moreButton.style.display = 'none';
+    }
+  }
 }
+
 
 function initOptions(products) {
   const optionsWrapper = document.getElementById('options-wrapper');
-
-  if (!optionsWrapper) {
-    console.error('Блок #options-wrapper не найден');
-    return;
-  }
+  if (!optionsWrapper) return;
 
   optionsWrapper.addEventListener('click', function(event) {
     const button = event.target.closest('.menu-section__option');
-
     if (!button) return;
-
     if (button.classList.contains('menu-section__option_active')) return;
 
     const category = button.dataset.optionName;
@@ -133,19 +152,71 @@ function initOptions(products) {
     allButtons.forEach(function(btn) {
       btn.classList.remove('menu-section__option_active');
     });
-
     button.classList.add('menu-section__option_active');
 
     showGoods(products, null, category);
   });
 }
 
+function initMoreButton(products) {
+  const moreButton = document.getElementById('more-goods');
+  if (!moreButton) {
+    console.error('The button #more-goods not found');
+    return;
+  }
+
+  moreButton.addEventListener('click', function() {    
+    isExpanded = true;
+    
+    const container = document.getElementById('goods-wrapper');
+    
+    const indexesToShow = currentCategory 
+      ? getIndexesByCategory(products, currentCategory)
+      : products.map(function(_, index) { return index; });
+
+    for (let i = 4; i < indexesToShow.length; i++) {
+      const globalIndex = indexesToShow[i];
+      
+      if (globalIndex >= 0 && globalIndex < products.length) {
+        const card = buildCard(products[globalIndex], globalIndex, container, i);
+      }
+    }
+
+    moreButton.style.display = 'none';
+  });
+}
+
+function initResizeHandler(products) {
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+  function handleResize() {
+    const isMobile = mediaQuery.matches;
+
+    if (isMobile) {
+      isExpanded = false;
+      showGoods(products, null, currentCategory);
+    } else {
+      isExpanded = false;
+      showGoods(products, null, currentCategory);
+    }
+  }
+
+  mediaQuery.addEventListener('change', handleResize);
+}
+
 export async function initCards() {
-  const products = await loadProducts();  
+  const products = await loadProducts();
   
   // Default products: coffee
   showGoods(products, null, 'coffee');
 
+  const defaultButton = document.querySelector('.menu-section__option[data-option-name="coffee"]');
+  if (defaultButton) {
+    defaultButton.classList.add('menu-section__option_active');
+  }
+
   // Init Category Listener
   initOptions(products);
+  initMoreButton(products);
+  initResizeHandler(products);
 }
