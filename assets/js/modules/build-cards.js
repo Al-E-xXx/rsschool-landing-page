@@ -1,3 +1,6 @@
+import { openModal } from './modal.js';
+import { buildElement } from './build-element.js';
+
 let currentCategory = 'coffee';
 let isExpanded = false;
 
@@ -14,36 +17,6 @@ async function loadProducts(filePath = './assets/json/products.json') {
   } catch (error) {
     throw error;
   }
-}
-
-function buildElement(tag = 'div', classes = [], attributes = {}, text = '', parent = null) {
-  const element = document.createElement(tag);
-
-  if (typeof classes === 'string') {
-    classes.split(' ').forEach(function(cls) {
-      if (cls.trim()) element.classList.add(cls.trim());
-    });
-  } else if (Array.isArray(classes)) {
-    classes.forEach(function(cls) {
-      if (cls) element.classList.add(cls);
-    });
-  }
-
-  if (attributes && typeof attributes === 'object') {
-    Object.keys(attributes).forEach(function(key) {
-      element.setAttribute(key, attributes[key]);
-    });
-  }
-
-  if (text) {
-    element.textContent = text;
-  }
-
-  if (parent) {
-    parent.append(element);
-  }
-
-  return element;
 }
 
 function buildCard(product, index, parent = null, localIndex = 0) {
@@ -204,6 +177,22 @@ function initResizeHandler(products) {
   mediaQuery.addEventListener('change', handleResize);
 }
 
+function initCardClick(products) {
+  const container = document.getElementById('goods-wrapper');
+
+  container.addEventListener('click', (event) => {
+    const goodsItem = event.target.closest('.goods__item');
+
+    if (!goodsItem) return;
+
+    const index = +goodsItem.dataset.index;
+
+    if (index >= 0) {
+      openModal(products[index]);
+    }    
+  });
+}
+
 export async function initCards() {
   const products = await loadProducts();
   
@@ -219,4 +208,5 @@ export async function initCards() {
   initOptions(products);
   initMoreButton(products);
   initResizeHandler(products);
+  initCardClick(products);
 }
