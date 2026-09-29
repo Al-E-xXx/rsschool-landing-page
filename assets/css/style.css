@@ -168,6 +168,8 @@ a {
 }
 
 .container {
+  position: relative;
+  overflow-x: hidden;
   width: 100%;
   min-height: 100vh;
   max-width: 1440px;
@@ -259,6 +261,10 @@ html[data-theme="dark"] .header__logo::before {
   opacity: 1;
 }
 
+.header__menu-wrapper {
+  position: relative;
+}
+
 .header__menu {
   display: flex;
   gap: clamp(12px, calc(12px + (40 - 12) * ((100vw - 780px) / (930 - 780))), 40px);
@@ -299,11 +305,23 @@ html[data-theme="dark"] .header__logo::before {
   height: 2px;
 
   background-color: var(--border-color);
+
+  transition: all 0.4s ease;
 }
 
 .header__mob-menu::after {
   top: auto;
   bottom: 16px;
+}
+
+.header__mob-menu_active::before {
+  transform-origin: left top;
+  transform: translate(3px, -1px) rotate(45deg);
+}
+
+.header__mob-menu_active::after {
+  transform-origin: left bottom;
+  transform: translate(3px, 2px) rotate(-45deg);
 }
 
 .header__menu-btn_coffee {
@@ -340,6 +358,10 @@ html[data-theme="dark"] .header__logo::before {
 
 html[data-theme="dark"] .header__menu-btn_coffee::after {
   opacity: 1;
+}
+
+.header__menu-btn_mob-only {
+  display: none;
 }
 
 .header__theme {
@@ -1493,11 +1515,55 @@ html[data-theme="dark"] .more-goods svg path {
     --footer-paddings-lr: clamp(16px, calc(16px + (60 - 16) * ((100vw - 400px) / (760 - 400))), 60px); 
   }
 
-  .header__menu,
   .header__menu-btn_coffee,
   .gallery__column:nth-child(1) .gallery__item:nth-child(2),
   .gallery__column:nth-child(2) .gallery__item:nth-child(1) {
     display: none;
+  }
+
+  .header__menu-wrapper {
+    position: absolute;
+    left: 100%;
+    top: 100px;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: var(--main-bg-color);
+
+    transition: transform 0.4s ease;
+  }
+
+  .header__menu-wrapper_show {
+    transform: translateX(-100%);
+  }
+
+  .header__menu {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .header__menu-btn {
+    font-size: 32px;
+    height: auto;
+  }
+
+  .header__menu-btn_mob-only {
+    display: flex;
+    width: 140px;
+    height: auto;
+  }
+
+  .header__menu-btn_coffee::before, .header__menu-btn_coffee::after {
+    width: 40px;
+    height: 40px;
   }
 
   .header__mob-menu {
