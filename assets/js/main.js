@@ -1,9 +1,11 @@
+import { initCards } from './modules/build-cards.js';
+
+// Theme toggle
 document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('theme-toggle');
   const htmlElement = document.documentElement;
 
   toggleBtn.addEventListener('click', () => {
-    // Проверяем текущее состояние атрибута на теге html
     const isDark = htmlElement.getAttribute('data-theme') === 'dark';
     
     if (isDark) {
@@ -15,4 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Current page
+const pageName = document.body.dataset.pageName;
+
+if (pageName === 'index') {
+  console.log('Main Page');
+} else if (pageName === 'menu') {
+  console.log('Menu Page');
+
+  initCards();
+}
+
+
 

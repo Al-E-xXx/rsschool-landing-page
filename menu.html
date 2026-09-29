@@ -21,7 +21,7 @@
         })();
     </script>
 </head>
-<body>
+<body data-page-name="menu">
     <div class="container">
         <header class="header">
             <a class="header__logo" href="./"></a>
@@ -59,110 +59,22 @@
             <h1 class="menu-section__title">
                 Behind each of our cups hides an <span class="menu-section__title_accent title-accent">amazing surprise</span>
             </h1>
-            <div class="menu-section__options-wrapper">
-                <button class="menu-section__option menu-section__option_active" id="opt-coffee">
+            <div class="menu-section__options-wrapper" id="options-wrapper">
+                <button class="menu-section__option menu-section__option_active" data-option-name="coffee">
                     <span class="menu-section__option-icon"></span>
                     <span class="menu-section__option-text">Coffee</span>
                 </button>
-                <button class="menu-section__option" id="opt-tea">
+                <button class="menu-section__option" data-option-name="tea">
                     <span class="menu-section__option-icon"></span>
                     <span class="menu-section__option-text">Tea</span>
                 </button>
-                <button class="menu-section__option" id="opt-dessert">
+                <button class="menu-section__option" data-option-name="dessert">
                     <span class="menu-section__option-icon"></span>
                     <span class="menu-section__option-text">Dessert</span>
                 </button>
             </div>
             
-            <div class="menu-section__goods-wrapper goods">
-                <div class="goods__item">
-                    <div class="goods__img-wrapper">
-                        <img class="goods__img" src="./assets/img/goods/coffee-1.webp" alt="a cup of Irish coffee">
-                    </div>
-                    <div class="goods__content-wrapper">
-                        <h2 class="goods__title">Irish coffee</h2>
-                        <p class="goods__description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
-                        <div class="goods__price">$7.00</div>
-                    </div>
-                </div>
-
-                <div class="goods__item">
-                    <div class="goods__img-wrapper">
-                        <img class="goods__img" src="./assets/img/goods/coffee-2.webp" alt="a cup of Kahlua coffee">
-                    </div>
-                    <div class="goods__content-wrapper">
-                        <h2 class="goods__title">Kahlua coffee</h2>
-                        <p class="goods__description">Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</p>
-                        <div class="goods__price">$7.00</div>
-                    </div>
-                </div>
-
-                <div class="goods__item">
-                    <div class="goods__img-wrapper">
-                        <img class="goods__img" src="./assets/img/goods/coffee-3.webp" alt="a cup of Honey raf">
-                    </div>
-                    <div class="goods__content-wrapper">
-                        <h2 class="goods__title">Honey raf</h2>
-                        <p class="goods__description">Espresso with frothed milk, cream and aromatic honey</p>
-                        <div class="goods__price">$5.50</div>
-                    </div>
-                </div>
-
-                <div class="goods__item">
-                    <div class="goods__img-wrapper">
-                        <img class="goods__img" src="./assets/img/goods/coffee-4.webp" alt="a cup of Ice cappuccino">
-                    </div>
-                    <div class="goods__content-wrapper">
-                        <h2 class="goods__title">Ice cappuccino</h2>
-                        <p class="goods__description">Cappuccino with soft thick foam in summer version with ice</p>
-                        <div class="goods__price">$5.00</div>
-                    </div>
-                </div>
-
-                <div class="goods__item">
-                    <div class="goods__img-wrapper">
-                        <img class="goods__img" src="./assets/img/goods/coffee-5.webp" alt="a cup of Espresso">
-                    </div>
-                    <div class="goods__content-wrapper">
-                        <h2 class="goods__title">Espresso</h2>
-                        <p class="goods__description">Classic black coffee</p>
-                        <div class="goods__price">$4.50</div>
-                    </div>
-                </div>
-
-                <div class="goods__item">
-                    <div class="goods__img-wrapper">
-                        <img class="goods__img" src="./assets/img/goods/coffee-6.webp" alt="a cup of Latte">
-                    </div>
-                    <div class="goods__content-wrapper">
-                        <h2 class="goods__title">Latte</h2>
-                        <p class="goods__description">Espresso coffee with the addition of steamed milk and dense milk foam</p>
-                        <div class="goods__price">$5.50</div>
-                    </div>
-                </div>
-
-                <div class="goods__item">
-                    <div class="goods__img-wrapper">
-                        <img class="goods__img" src="./assets/img/goods/coffee-7.webp" alt="a cup of Latte macchiato">
-                    </div>
-                    <div class="goods__content-wrapper">
-                        <h2 class="goods__title">Latte macchiato</h2>
-                        <p class="goods__description">Espresso with frothed milk and chocolate</p>
-                        <div class="goods__price">$5.50</div>
-                    </div>
-                </div>
-
-                <div class="goods__item">
-                    <div class="goods__img-wrapper">
-                        <img class="goods__img" src="./assets/img/goods/coffee-8.webp" alt="a cup of Coffee with cognac">
-                    </div>
-                    <div class="goods__content-wrapper">
-                        <h2 class="goods__title">Coffee with cognac</h2>
-                        <p class="goods__description">Fragrant black coffee with cognac and whipped cream</p>
-                        <div class="goods__price">$6.50</div>
-                    </div>
-                </div>
-            </div>
+            <div class="menu-section__goods-wrapper goods" id="goods-wrapper"></div>
 
             <div class="menu-section__more-wrapper">
                 <button class="more-goods">
