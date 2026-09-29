@@ -1,4 +1,5 @@
 import { initCards } from './modules/build-cards.js';
+import { initMenu } from './modules/menu.js';
 
 // Theme toggle
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,6 +29,9 @@ if (pageName === 'index') {
 
   initCards();
 }
+
+initMenu();
+
 
 
 

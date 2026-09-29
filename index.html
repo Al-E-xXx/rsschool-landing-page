@@ -26,24 +26,31 @@
         <header class="header">
             <a class="header__logo" href="./"></a>
 
-            <nav class="header__menu">
-                <a class="header__menu-btn link" href="#favorite-coffee">
-                    <span>Favorite coffee</span>
+            <div class="header__menu-wrapper">
+                <nav class="header__menu">
+                    <a class="header__menu-btn link" href="#favorite-coffee">
+                        <span>Favorite coffee</span>
+                        <span class="link__underline"></span>
+                    </a>
+                    <a class="header__menu-btn link" href="#about">
+                    <span>About</span>
+                    <span class="link__underline"></span>
+                    </a>
+                    <a class="header__menu-btn link" href="#mob-app">
+                    <span>Mobile app</span>
+                    <span class="link__underline"></span>
+                    </a>
+                    <a class="header__menu-btn link" href="#contact-us">
+                    <span>Contact us</span>
+                    <span class="link__underline"></span>
+                    </a>
+                </nav>
+
+                <a class="header__menu-btn header__menu-btn_coffee header__menu-btn_mob-only link" href="./menu.html">
+                    <span>Menu</span>
                     <span class="link__underline"></span>
                 </a>
-                <a class="header__menu-btn link" href="#about">
-                <span>About</span>
-                <span class="link__underline"></span>
-                </a>
-                <a class="header__menu-btn link" href="#mob-app">
-                <span>Mobile app</span>
-                <span class="link__underline"></span>
-                </a>
-                <a class="header__menu-btn link" href="#contact-us">
-                <span>Contact us</span>
-                <span class="link__underline"></span>
-                </a>
-            </nav>
+            </div>
 
             <div class="header__btns-wrapper">
                 <button class="header__mob-menu"></button>
@@ -231,6 +238,64 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal__photo" id="modal-photo-wrapper">
+                <img class="modal__photo-img" src="./assets/img/goods/coffee-1.webp" alt="">
+            </div>
+            <div class="modal__content">
+                <h2 class="modal__title">Irish coffee</h2>
+                <p class="modal__description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
+
+                <p class="modal__label">Size</p>
+                <div class="modal__options" id="modal-size-options">
+                <button class="modal__option modal__option_hover modal__option_active" id="size-s" data-price="0" type="button">
+                    <span class="modal__badge">S</span>
+                    <span id="size-s-text">200 ml</span>
+                </button>
+                <button class="modal__option modal__option_hover" id="size-m" data-price="0.5" type="button">
+                    <span class="modal__badge">M</span>
+                    <span id="size-m-text">300 ml</span>
+                </button>
+                <button class="modal__option modal__option_hover" id="size-l" data-price="1" type="button">
+                    <span class="modal__badge">L</span>
+                    <span id="size-l-text">400 ml</span>
+                </button>
+                </div>
+
+                <p class="modal__label">Additives</p>
+                <div class="modal__options" id="modal-additive-options">
+                <button class="modal__option" id="additive-1" data-price="0.5" type="button">
+                    <span class="modal__badge">1</span>
+                    <span id="additive-1-text">Sugar</span>
+                </button>
+                <button class="modal__option" id="additive-2" data-price="0.5" type="button">
+                    <span class="modal__badge">2</span>
+                    <span id="additive-2-text">Cinnamon</span>
+                </button>
+                <button class="modal__option" id="additive-3" data-price="0.5" type="button">
+                    <span class="modal__badge">3</span>
+                    <span id="additive-3-text">Syrup</span>
+                </button>
+                </div>
+
+                <div class="modal__total">
+                <p class="modal__total-label">Total:</p>
+                <p class="modal__total-value">$<span  id="modal-total-price" data-price="8">7.00</span></p>
+                </div>
+
+                <hr class="modal__divider">
+
+                <p class="modal__note">
+                <span class="modal__note-icon">i</span>
+                The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
+                </p>
+
+                <button class="modal__close" id="modal-close-button" type="button">Close</button>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="./assets/js/main.js"></script>
