@@ -977,7 +977,7 @@ html[data-theme="dark"] .menu-section__option_active .menu-section__option-icon 
 }
 
 .more-goods {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 

@@ -129,7 +129,7 @@ function showGoods(products, indexes = null, category = null) {
     const hasMore = indexesToShow.length > cardsCount;
     
     if (isMobile && hasMore && !isExpanded) {
-      moreButton.style.display = 'block';
+      moreButton.style.display = 'flex';
     } else {
       moreButton.style.display = 'none';
     }
