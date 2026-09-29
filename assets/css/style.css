@@ -972,7 +972,7 @@ html[data-theme="dark"] .menu-section__option_active .menu-section__option-icon 
 }
 
 .menu-section__more-wrapper {
-  display: none;
+  display: block;
   margin-top: 40px;
 }
 
@@ -1230,7 +1230,7 @@ html[data-theme="dark"] .more-goods svg path {
   }
 }
 
-@media (max-width: 1089px) {
+/* @media (max-width: 1089px) {
   .goods__item:nth-child(5),
   .goods__item:nth-child(6),
   .goods__item:nth-child(7),
@@ -1241,7 +1241,7 @@ html[data-theme="dark"] .more-goods svg path {
   .menu-section__more-wrapper {
     display: block;
   }
-}
+} */
 
 @media (max-width: 1070px) {
   .footer {
